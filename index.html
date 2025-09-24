@@ -3,10 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Chart</title>
+    <title>My Data Story</title>
+    <style>
+        /* This keeps the map container in place as you scroll */
+        #chart-container {
+            position: sticky;
+            top: 20px;
+            width: 50%;
+            float: left;
+        }
+
+        /* This hides all charts by default, so only the right one shows */
+        .chart {
+            display: none;
+        }
+
+        /* This adds space and makes the text appear next to the map */
+        .story-text {
+            height: 500px;
+            padding-left: 55%;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <h2>Here is my Datawrapper chart!</h2>
-    <iframe title="Crude Birth Rate (per 1000 people) across europe" aria-label="Choropleth map" id="datawrapper-chart-D5NBu" src="https://datawrapper.dwcdn.net/D5NBu/1/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
-    </body>
+
+    <div id="chart-container">
+        <div id="map-1" class="chart">
+            <iframe title="Crude Birth Rate (per 1000 people) across europe" aria-label="Choropleth map" id="datawrapper-chart-D5NBu" src="https://datawrapper.dwcdn.net/D5NBu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+        </div>
+
+        <div id="map-2" class="chart">
+            <iframe title="Crude Birth Rate (per 1000 people) across europe (Copy)" aria-label="Choropleth map" id="datawrapper-chart-YG6Lu" src="https://datawrapper.dwcdn.net/YG6Lu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+        </div>
+
+        <div id="map-3" class="chart">
+            <iframe title="Crude Birth Rate (per 1000 people) across europe (Copy)" aria-label="Choropleth map" id="datawrapper-chart-YG6Lu" src="https://datawrapper.dwcdn.net/YG6Lu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+        </div>
+    </div>
+
+    <div id="text-1" class="story-text">
+        <p><b>With birth rates collapsing, who's actually having Europe's babies?</b></p>
+        <p><b>The Immigration Birth Dividend: Foreign Mothers Keep Europe Alive</b></p>
+        <p>This map shows who's having babies. Dark green = more births per 1000 people. But the real story is in the composition: immigrant mothers vs. native mothers.</p>
+    </div>
+
+    <div id="text-2" class="story-text">
+        <p>The shocking reality: In 24 out of 32 countries, immigrant mothers contribute MORE births than their population share. **Luxembourg: 51% immigrants → 67% of births.** Switzerland: 31% immigrants → 45% of births. They're not replacing Europeans. They're saving European demographics.</p>
+    </div>
+
+    <div id="text-3" class="story-text">
+        <p>Countries embracing immigrant births: ↗ Higher birth rates, demographic stability. Countries with low immigrant births: ↘ Lowest birth rates in Europe. **Poland: 2.6% immigrants, 7% immigrant births. Result: 7.4 births per 1000 (crisis level)**.</p>
+    </div>
+
+    <script>
+        // We are getting all of our charts and all of our story sections
+        const charts = document.querySelectorAll('.chart');
+        const storySections = document.querySelectorAll('.story-text');
+
+        // This function shows one chart and hides all the others
+        function showChart(index) {
+            charts.forEach((chart, i) => {
+                if (i === index) {
+                    chart.style.display = 'block';
+                } else {
+                    chart.style.display = 'none';
+                }
+            });
+        }
+
+        // We are going to watch each story section to see when it enters the screen
+        storySections.forEach((section, index) => {
+            new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    showChart(index);
+                }
+            }).observe(section);
+        });
+
+        // Show the first chart when the page first loads
+        showChart(0);
+    </script>
+
+</body>
 </html>
