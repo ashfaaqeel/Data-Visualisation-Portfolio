@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Data Story</title>
+    <title>My Scrollytelling Story</title>
     <style>
-        /* This keeps the map container in place as you scroll */
-        #chart-container {
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+        #main-scrollytelling-container {
+            display: flex;
+        }
+        #map-container {
+            flex: 1;
             position: sticky;
             top: 20px;
-            width: 50%;
-            float: left;
         }
-
-        /* This hides all charts by default, so only the right one shows */
+        #content-container {
+            flex: 1;
+            padding: 20px;
+        }
         .chart {
             display: none;
         }
-
-        /* This adds space and makes the text appear next to the map */
         .story-text {
             height: 500px;
-            padding-left: 55%;
             font-size: 1.2em;
             line-height: 1.6;
         }
@@ -29,34 +33,64 @@
 </head>
 <body>
 
-    <div id="chart-container">
-        <div id="map-1" class="chart">
-            <iframe title="Crude Birth Rate (per 1000 people) across europe" aria-label="Choropleth map" id="datawrapper-chart-D5NBu" src="https://datawrapper.dwcdn.net/D5NBu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+    <div id="main-scrollytelling-container">
+
+        <div id="map-container">
+            <div id="map-1" class="chart">
+                <iframe title="Crude Birth Rate (per 1000 people) across europe" aria-label="Choropleth map" id="datawrapper-chart-D5NBu" src="https://datawrapper.dwcdn.net/D5NBu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+            </div>
+            <div id="map-2" class="chart">
+                <iframe title="Crude Birth Rate (per 1000 people) across europe (Copy)" aria-label="Choropleth map" id="datawrapper-chart-YG6Lu" src="https://datawrapper.dwcdn.net/YG6Lu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+            </div>
+            <div id="map-3" class="chart">
+                <iframe title="Crude Birth Rate (per 1000 people) across europe (Copy)" aria-label="Choropleth map" id="datawrapper-chart-YG6Lu" src="https://datawrapper.dwcdn.net/YG6Lu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+            </div>
         </div>
 
-        <div id="map-2" class="chart">
-            <iframe title="Crude Birth Rate (per 1000 people) across europe (Copy)" aria-label="Choropleth map" id="datawrapper-chart-YG6Lu" src="https://datawrapper.dwcdn.net/YG6Lu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
+        <div id="content-container">
+            <div id="text-1" class="story-text">
+                <p><b>With birth rates collapsing, who's actually having Europe's babies?</b></p>
+                <p><b>The Immigration Birth Dividend: Foreign Mothers Keep Europe Alive</b></p>
+                <p>This map shows who's having babies. Dark green = more births per 1000 people. But the real story is in the composition: immigrant mothers vs. native mothers.</p>
+            </div>
+            <div id="text-2" class="story-text">
+                <p>The shocking reality: In 24 out of 32 countries, immigrant mothers contribute MORE births than their population share. Luxembourg: 51% immigrants → 67% of births.</p>
+                <p><b>Immigrant Births as % of Total</b></p>
+                <div class="custom-bar-container"><div class="custom-bar-fill bar-luxembourg"></div></div>
+                <p>Switzerland: 31% immigrants → 45% of births. They're not replacing Europeans. They're saving European demographics.</p>
+            </div>
+            <div id="text-3" class="story-text">
+                <p><b>Switzerland</b><br><small>Crude birth rate: 9.0 per 1,000</small></p>
+                <table style="margin-top:6px; border-collapse: collapse; width: 100%; padding-right: 10px;">
+                  <tr>
+                    <td style="padding-right:10px; width: 40%;">Immigrant Mothers</td>
+                    <td style="width: 60%; padding-right:10px;">
+                      <div style="height:20px; display:flex; align-items:center; background:#ececec; position: relative; padding-right:10px;">
+                        <div style="background:#828a52; height:100%; width: 45%;"></div>
+                        <span style="position:absolute; left: calc(45% + 4px); font-size:0.9em; font-weight:bold; color:#828a52;">
+                          45%
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding-top:3px; padding-right:10px;">Native Mothers</td>
+                    <td style="width: 60%; padding-right:10px;">
+                      <div style="height:20px; display:flex; align-items:center; background:#ececec; position: relative; padding-right:10px;">
+                        <div style="background:#414d38; height:100%; width: 55%;"></div>
+                        <span style="position:absolute; left: calc(55% + 4px); font-size:0.9em; font-weight:bold; color:#414d38;">
+                          55%
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <p>That’s a difference of <strong>10.0</strong>%-points</p>
+                <p>Countries embracing immigrant births: ↗ Higher birth rates, demographic stability. Countries with low immigrant births: ↘ Lowest birth rates in Europe. Poland: 2.6% immigrants, 7% immigrant births. Result: 7.4 births per 1000 (crisis level).</p>
+            </div>
         </div>
-
-        <div id="map-3" class="chart">
-            <iframe title="Crude Birth Rate (per 1000 people) across europe (Copy)" aria-label="Choropleth map" id="datawrapper-chart-YG6Lu" src="https://datawrapper.dwcdn.net/YG6Lu/2/" scrolling="no" frameborder="0" style="border: none;" width="600" height="719" data-external="1"></iframe>
-        </div>
     </div>
-
-    <div id="text-1" class="story-text">
-        <p><b>With birth rates collapsing, who's actually having Europe's babies?</b></p>
-        <p><b>The Immigration Birth Dividend: Foreign Mothers Keep Europe Alive</b></p>
-        <p>This map shows who's having babies. Dark green = more births per 1000 people. But the real story is in the composition: immigrant mothers vs. native mothers.</p>
-    </div>
-
-    <div id="text-2" class="story-text">
-        <p>The shocking reality: In 24 out of 32 countries, immigrant mothers contribute MORE births than their population share. **Luxembourg: 51% immigrants → 67% of births.** Switzerland: 31% immigrants → 45% of births. They're not replacing Europeans. They're saving European demographics.</p>
-    </div>
-
-    <div id="text-3" class="story-text">
-        <p>Countries embracing immigrant births: ↗ Higher birth rates, demographic stability. Countries with low immigrant births: ↘ Lowest birth rates in Europe. **Poland: 2.6% immigrants, 7% immigrant births. Result: 7.4 births per 1000 (crisis level)**.</p>
-    </div>
-
+    
     <script>
         // We are getting all of our charts and all of our story sections
         const charts = document.querySelectorAll('.chart');
@@ -85,6 +119,6 @@
         // Show the first chart when the page first loads
         showChart(0);
     </script>
-
+    
 </body>
 </html>
