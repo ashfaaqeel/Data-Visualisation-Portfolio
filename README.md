@@ -33,31 +33,33 @@ The system:
 The objective is not just extraction, but **decision support for PLM teams**.
 
 ---
+```text
 DIS25_AutoExtract_PLM_PoC/
 │
 ├── data/
-│ ├── raw_pdfs/ # Original PDF documents (Formula, SDS, TDS, Packaging)
-│ ├── ocr_image/ # Scanned / photographed product labels
-│ └── extracted_text/ # Text extracted from PDFs and OCR images
+│   ├── raw_pdfs/          # Original PDF documents (Formula, SDS, TDS, Packaging)
+│   ├── ocr_image/         # Scanned / photographed product labels
+│   └── extracted_text/    # Text extracted from PDFs and OCR images
 │
 ├── results/
-│ ├── extracted_fields.csv # Structured PLM fields
-│ ├── duplicate_analysis.csv # Semantic duplicate pairs
-│ ├── priority_report.csv # Final prioritized PLM output
-│ └── logs.txt
+│   ├── extracted_fields.csv      # Structured PLM fields
+│   ├── duplicate_analysis.csv    # Semantic duplicate pairs
+│   ├── priority_report.csv       # Final prioritized PLM output
+│   └── logs.txt
 │
 ├── src/
-│ ├── pdf_extract.py # PDF → text extraction
-│ ├── ocr_image_extract.py # OCR for scanned labels
-│ ├── extract_fields.py # PLM field extraction
-│ ├── detect_duplicates.py # ML-based duplicate detection
-│ ├── priority_ranking.py # Impact-based prioritization
-│ └── utils.py
+│   ├── pdf_extract.py            # PDF → text extraction
+│   ├── ocr_image_extract.py      # OCR for scanned labels
+│   ├── extract_fields.py         # PLM field extraction
+│   ├── detect_duplicates.py      # ML-based duplicate detection
+│   ├── priority_ranking.py       # Impact-based prioritization
+│   └── utils.py
 │
-├── app.py # Streamlit UI
+├── app.py                # Streamlit UI
 ├── README.md
 ├── requirements.txt
 └── venv/
+Key Directories and FilesDirectory/FileDescriptiondata/Repository for raw input and intermediate text files.src/Contains all the core processing scripts and modules.results/Stores all final outputs, reports, and logs.app.pyThe main script for the Streamlit user interface.requirements.txtLists all required Python dependencies for the project.venv/The isolated Python virtual environment.
 
 
 
