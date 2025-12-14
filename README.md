@@ -61,7 +61,7 @@ DIS25_AutoExtract_PLM_PoC/
 └── venv/
 Key Directories and FilesDirectory/FileDescriptiondata/Repository for raw input and intermediate text files.src/Contains all the core processing scripts and modules.results/Stores all final outputs, reports, and logs.app.pyThe main script for the Streamlit user interface.requirements.txtLists all required Python dependencies for the project.venv/The isolated Python virtual environment.
 
-```text
+```
 
 
 ## 3. End-to-End Pipeline
