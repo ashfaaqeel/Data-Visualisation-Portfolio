@@ -33,6 +33,34 @@ The system:
 The objective is not just extraction, but **decision support for PLM teams**.
 
 ---
+DIS25_AutoExtract_PLM_PoC/
+│
+├── data/
+│ ├── raw_pdfs/ # Original PDF documents (Formula, SDS, TDS, Packaging)
+│ ├── ocr_image/ # Scanned / photographed product labels
+│ └── extracted_text/ # Text extracted from PDFs and OCR images
+│
+├── results/
+│ ├── extracted_fields.csv # Structured PLM fields
+│ ├── duplicate_analysis.csv # Semantic duplicate pairs
+│ ├── priority_report.csv # Final prioritized PLM output
+│ └── logs.txt
+│
+├── src/
+│ ├── pdf_extract.py # PDF → text extraction
+│ ├── ocr_image_extract.py # OCR for scanned labels
+│ ├── extract_fields.py # PLM field extraction
+│ ├── detect_duplicates.py # ML-based duplicate detection
+│ ├── priority_ranking.py # Impact-based prioritization
+│ └── utils.py
+│
+├── app.py # Streamlit UI
+├── README.md
+├── requirements.txt
+└── venv/
+
+
+
 
 ## 3. End-to-End Pipeline
 
